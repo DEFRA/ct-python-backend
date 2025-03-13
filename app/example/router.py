@@ -27,3 +27,9 @@ async def db_query(db=Depends(get_db)):
 async def http_query(client=Depends(async_client)):
     resp = await client.get("http://localhost:9999/test")
     return {"ok": resp.status_code}
+
+
+@router.get("/proxy")
+async def http_proxy_query(client=Depends(async_client)):
+    resp = await client.get("https://www.gov.uk/")
+    return {"ok": resp.status_code}
