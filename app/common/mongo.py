@@ -19,7 +19,7 @@ async def get_mongo_client() -> AsyncMongoClient:
     if client is None:
         # Use the custom CA Certs from env vars if set.
         # We can remove this once we migrate to mongo Atlas.
-        cert = custom_ca_certs.get("TRUSTSTORE_CDP")
+        cert = custom_ca_certs.get("TRUSTSTORE_CDP_ROOT_CA")
         if cert:
             logger.info("Creating MongoDB client with custom TLS cert %s", cert)
             client = AsyncMongoClient(config.mongo_uri, tlsCAFile=cert)
