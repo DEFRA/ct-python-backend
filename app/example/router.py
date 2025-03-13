@@ -13,7 +13,7 @@ logger = getLogger(__name__)
 @router.get("/test")
 async def root():
     logger.info("TEST ENDPOINT")
-    return {"ok": True}
+    return {"hello": "world"}
 
 
 @router.get("/db")
