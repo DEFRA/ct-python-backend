@@ -1,8 +1,8 @@
-# cdp-python-backend-template
+# ct-python-backend
 
 This is work-in-progress. See [To Do List](./TODO.md)
 
-- [cdp-python-backend-template](#cdp-python-backend-template)
+- [ct-python-backend](#ct-python-backend)
   - [Requirements](#requirements)
     - [Python](#python)
     - [Docker](#docker)
