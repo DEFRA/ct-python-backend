@@ -25,7 +25,9 @@ async def db_query(db=Depends(get_db)):
 
 @router.get("/http")
 async def http_query(client=Depends(async_client)):
-    resp = await client.get("http://localhost:9999/test")
+    resp = await client.get(
+        "https://cdp-portal-backend.infra-dev.cdp-int.defra.cloud/services"
+    )
     return {"ok": resp.status_code}
 
 
