@@ -9,6 +9,7 @@ permissions:
   id-token: write
   contents: write
   pull-requests: write
+  packages: write
 
 env:
   AWS_REGION: eu-west-2
@@ -27,6 +28,20 @@ jobs:
         uses: DEFRA/cdp-build-action/build@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Log in to ghcr.io
+        uses: docker/login-action@v3
+        with:
+          registry: https://ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: push to ghcr.io
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ghcr.io/DEFRA/ct-python-backend/${{ github.event.repository.name }}:latest .
+      
 
 #      - name: Create Test Coverage Reports
 #        run: |
