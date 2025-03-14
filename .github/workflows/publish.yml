@@ -40,7 +40,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ghcr.io/DEFRA/ct-python-backend/${{ github.event.repository.name }}:latest
+          tags: ghcr.io/defra/${{ github.event.repository.name }}:latest
       
 
 #      - name: Create Test Coverage Reports
