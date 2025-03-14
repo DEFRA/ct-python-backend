@@ -24,24 +24,11 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
-      #- name: Build and Publish
-      #  uses: DEFRA/cdp-build-action/build@main
-      #  with:
-      #    github-token: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Log in to ghcr.io
-        uses: docker/login-action@v3
+      - name: Build and Publish
+        uses: DEFRA/cdp-build-action/build@main
         with:
-          registry: https://ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: push to ghcr.io
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          tags: ghcr.io/defra/${{ github.event.repository.name }}:latest
-      
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
 
 #      - name: Create Test Coverage Reports
 #        run: |
