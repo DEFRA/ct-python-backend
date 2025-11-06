@@ -22,7 +22,7 @@ async def lifespan(_: FastAPI):
         await client.close()
         logger.info("MongoDB client closed")
 
-
+raise "this is meant to fail"
 app = FastAPI(lifespan=lifespan)
 
 # Setup middleware
